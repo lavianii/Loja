@@ -26,18 +26,13 @@ namespace Loja_API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public  ActionResult<dynamic> Login(UsuarioLoja user)
+        public  ActionResult<dynamic> Login(UsuarioLoja usuario)
         {
-            if (user.username != user.username)
-            {
-                return BadRequest("User not found.");
-            }
-
-            if (user.senha != user.senha)
-            {
-                return BadRequest("Wrong password.");
-            }
-
+        
+           var user = _context.UsuarioLoja.Where(u => u.username == usuario.username
+           && u.senha == usuario.senha).FirstOrDefault(); 
+           if(user == null)
+                return Unauthorized("Usuário ou senha inválidos");
            var authClaims = new List<Claim> {
                 new Claim(ClaimTypes.Name, user.username),
                 new Claim(ClaimTypes.Role, user.role),
@@ -62,6 +57,7 @@ namespace Loja_API.Controllers
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
+
         public string Authenticated() => String.Format("Autenticado - {0}", User.Identity.Name);
         
         [HttpGet]
@@ -70,8 +66,8 @@ namespace Loja_API.Controllers
         public string Funcionario() => "Funcionario";
 
         [HttpGet]
-        [Route("Gerente")]
-        [Authorize(Roles = "Gerente")]
+        [Route("gerente")]
+        [Authorize(Roles = "gerente")]
         public string Gerente() => "Gerente";
         
         private JwtSecurityToken GetToken(List<Claim> authClaims)
