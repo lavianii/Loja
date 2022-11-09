@@ -1,6 +1,6 @@
 namespace Loja_API.models
 {
-    public class UsuarioLoja
+    public class Usuario
     {
         public int Id { get; set; }
         public string username { get; set; } = string.Empty;

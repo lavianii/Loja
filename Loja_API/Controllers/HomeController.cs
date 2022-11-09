@@ -26,10 +26,10 @@ namespace Loja_API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public  ActionResult<dynamic> Login(UsuarioLoja usuario)
+        public  ActionResult<dynamic> Login(Usuario usuario)
         {
-        
-           var user = _context.UsuarioLoja.Where(u => u.username == usuario.username
+            
+           var user = _context.Usuario.Where(u => u.username == usuario.username
            && u.senha == usuario.senha).FirstOrDefault(); 
            if(user == null)
                 return Unauthorized("Usuário ou senha inválidos");
@@ -50,12 +50,12 @@ namespace Loja_API.Controllers
         }
 
         [HttpGet]
-        [Route("anonymous")]
+        [Route("anonimo")]
         [AllowAnonymous]
         public string Anonymous() => "Anônimo";
 
         [HttpGet]
-        [Route("authenticated")]
+        [Route("autenticado")]
         [Authorize]
 
         public string Authenticated() => String.Format("Autenticado - {0}", User.Identity.Name);

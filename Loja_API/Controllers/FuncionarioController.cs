@@ -1,11 +1,6 @@
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Loja_API.Data;
 using Loja_API.models;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-
 
 namespace Loja_API.Controllers
 {
@@ -114,19 +109,16 @@ namespace Loja_API.Controllers
             }
             catch
             {
-
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
                 "Falha no acesso ao banco de dados.");
             }
         }
-
 
         [HttpPut("{FuncionarioId}")]
         public async Task<IActionResult> put(int FuncionarioId, Funcionario alteraDados)
         {
             try
             {
-                //verifica se existe aluno a ser alterado
                 var result = await _context.Funcionario.FindAsync(FuncionarioId);
                 if (result is not null)
                 {
