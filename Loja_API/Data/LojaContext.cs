@@ -17,9 +17,9 @@ namespace Loja_API.Data
             // connect to sql server with connection string from app settings
             options.UseSqlServer(Configuration.GetConnectionString("StringConexaoSQLServer"));
         }
-        public DbSet<Funcionario> Funcionario { get; set; }
-        public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<Tapete> Tapete {get;set;}
+        public DbSet<Funcionario>? Funcionario { get; set; }
+        public DbSet<Usuario>? Usuario { get; set; }
+        public DbSet<Tapete>? Tapete {get;set;}
 
     }
 }

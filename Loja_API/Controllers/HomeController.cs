@@ -28,7 +28,7 @@ namespace Loja_API.Controllers
         [Route("login")]
         public  ActionResult<dynamic> Login(Usuario usuario)
         {
-           if(_context is not null)
+           if(_context is not null && _context.Usuario is not null)
            {
 
            var user = _context.Usuario.Where(u => u.username == usuario.username

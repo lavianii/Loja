@@ -17,8 +17,14 @@ namespace Loja_API.Controllers
 
         [HttpGet]
         public ActionResult<List<Tapete>> GetAll()
-        {
-            return _context.Tapete.ToList();
+        {   if(_context is not null && _context.Tapete is not null)
+            {
+                return _context.Tapete.ToList();
+            }
+            else
+            {
+                return NotFound();   
+            }
         }
 
         [ActionName("TapeteId")]
@@ -97,15 +103,24 @@ namespace Loja_API.Controllers
         {
             try
             {
-                var Tapete = await _context.Tapete.FindAsync(TapeteId);
-                if (Tapete == null)
+                if(_context is not null && _context.Tapete is not null)
+                {
+                    var Tapete = await _context.Tapete.FindAsync(TapeteId);
+                    if (Tapete == null)
+                    {
+                        return NotFound();
+                    }
+                    
+                    _context.Remove(Tapete);
+                    await _context.SaveChangesAsync();
+                        
+                    return NoContent();
+                }
+                else
                 {
                     return NotFound();
                 }
 
-                _context.Remove(Tapete);
-                await _context.SaveChangesAsync();
-                return NoContent();
             }
             catch
             {
@@ -119,21 +134,30 @@ namespace Loja_API.Controllers
         {
             try
             {
-                var result = await _context.Tapete.FindAsync(TapeteId);
-                if (result is not null)
+                if(_context is not null && _context.Tapete is not null)
                 {
-
-                    if (TapeteId != result.id)
+                    var result = await _context.Tapete.FindAsync(TapeteId);
+                    
+                    if (result is not null)
                     {
-                        return BadRequest();
-                    }
-                    result.nome = alteraDados.nome;
-                    result.preco = alteraDados.preco;
-                    result.descricao = alteraDados.descricao;
-                    await _context.SaveChangesAsync();
-                }
 
-                return Created($"/api/Tapete/{alteraDados.nome}/{alteraDados.descricao}", alteraDados);
+                        if(TapeteId != result.id)
+                        {
+                            return BadRequest();
+                        }
+                        result.nome = alteraDados.nome;
+                        result.preco = alteraDados.preco;
+                        result.descricao = alteraDados.descricao;
+                        
+                        await _context.SaveChangesAsync();
+                    }
+
+                    return Created($"/api/Tapete/{alteraDados.nome}/{alteraDados.descricao}", alteraDados);
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
             catch
             {
