@@ -18,7 +18,14 @@ namespace Loja_API.Controllers
         [HttpGet]
         public ActionResult<List<Funcionario>> GetAll()
         {
-            return _context.Funcionario.ToList();
+            if (_context is not null && _context.Funcionario is not null)
+            {
+                return _context.Funcionario.ToList();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         [ActionName("FuncionarioId")]
@@ -97,15 +104,22 @@ namespace Loja_API.Controllers
         {
             try
             {
-                var funcionario = await _context.Funcionario.FindAsync(FuncionarioId);
-                if (funcionario == null)
+                if (_context is not null && _context.Funcionario is not null){
+                    var funcionario = await _context.Funcionario.FindAsync(FuncionarioId);
+                    if (funcionario == null)
+                    {
+                        return NotFound();
+                    }
+                    _context.Remove(funcionario);
+                    await _context.SaveChangesAsync();
+                    
+                    return NoContent();
+                }
+                else
                 {
                     return NotFound();
                 }
-
-                _context.Remove(funcionario);
-                await _context.SaveChangesAsync();
-                return NoContent();
+               
             }
             catch
             {
@@ -119,7 +133,9 @@ namespace Loja_API.Controllers
         {
             try
             {
-                var result = await _context.Funcionario.FindAsync(FuncionarioId);
+                if (_context is not null && _context.Funcionario is not null)
+                {
+                    var result = await _context.Funcionario.FindAsync(FuncionarioId);
                 if (result is not null)
                 {
 
@@ -127,11 +143,18 @@ namespace Loja_API.Controllers
                     {
                         return BadRequest();
                     }
+
                     result.cargo = alteraDados.cargo;
                     await _context.SaveChangesAsync();
                 }
 
-                return Created($"/api/funcionario/{alteraDados.cargo}", alteraDados);
+                    return Created($"/api/funcionario/{alteraDados.cargo}", alteraDados);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+                
             }
             catch
             {

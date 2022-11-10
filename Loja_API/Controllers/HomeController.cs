@@ -28,7 +28,9 @@ namespace Loja_API.Controllers
         [Route("login")]
         public  ActionResult<dynamic> Login(Usuario usuario)
         {
-            
+           if(_context is not null)
+           {
+
            var user = _context.Usuario.Where(u => u.username == usuario.username
            && u.senha == usuario.senha).FirstOrDefault(); 
            if(user == null)
@@ -47,6 +49,11 @@ namespace Loja_API.Controllers
                 token = new JwtSecurityTokenHandler().WriteToken(token),
                 user = user
             });
+           } 
+           else
+           {
+            return "Null";
+           }
         }
 
         [HttpGet]
@@ -58,17 +65,41 @@ namespace Loja_API.Controllers
         [Route("autenticado")]
         [Authorize]
 
-        public string Authenticated() => String.Format("Autenticado - {0}", User.Identity.Name);
+        public string Authenticated()
+        {
+            if(User is not null && User.Identity is not null)
+            {
+                return String.Format("Autenticado - {0}", User.Identity.Name);
+            }
+            
+            return "Null";
+        }
         
         [HttpGet]
         [Route("funcionario")]
         [Authorize(Roles = "funcionario,gerente")]
-        public string Funcionario() => "Funcionario";
+        public string Funcionario()
+        {
+            if(User is not null && User.Identity is not null)
+            {
+                return String.Format("Funcionario - {0}", User.Identity.Name);
+            }
+            
+            return "Null";
+        }
 
         [HttpGet]
         [Route("gerente")]
         [Authorize(Roles = "gerente")]
-        public string Gerente() => "Gerente";
+        public string Gerente() 
+        {
+            if(User is not null && User.Identity is not null)
+            {
+                return String.Format("Gerente - {0}", User.Identity.Name);
+            }
+            
+            return "Null";
+        }
         
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {

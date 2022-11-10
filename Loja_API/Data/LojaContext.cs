@@ -18,6 +18,8 @@ namespace Loja_API.Data
             options.UseSqlServer(Configuration.GetConnectionString("StringConexaoSQLServer"));
         }
         public DbSet<Funcionario> Funcionario { get; set; }
-        public DbSet<Usuario>? Usuario { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Tapete> Tapete {get;set;}
+
     }
 }
