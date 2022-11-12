@@ -1,5 +1,10 @@
 .imagem{
     box-shadow: 1px 5px 2px rgb(203, 203, 203);
-  
+    width: auto;
+    height: auto;
+}
+.cards{
 
+    display: inline-flex;
+  
 }

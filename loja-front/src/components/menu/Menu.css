@@ -13,3 +13,6 @@
 .nav-link{
     color: #ffffff;
 }
+.nav-link:hover{
+    color: #5ce1e6;
+}

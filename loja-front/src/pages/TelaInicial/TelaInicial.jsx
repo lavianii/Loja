@@ -9,10 +9,15 @@ export default function TelaInicial(){
         <>
           <Menu/>
           <div className='imagem'>
-            <img src={tapete} alt='logo' width={1510} height={300} />
+            <img src={tapete} alt='logo' width={1348} height={300}/>
           </div>
-          <div>
+          <div className='cards'>
             <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+           
           </div>
           
         

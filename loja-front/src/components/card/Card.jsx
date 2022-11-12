@@ -15,8 +15,8 @@ export default function Card() {
 
                 <div class="card-body">
                     <p class="card-text">Tapete cinza</p>
-                    <h5>$159,90</h5>
-                    <a href="#" class="btn btn-primary">Visitar</a>
+                    <h5 class="card-text-preco">$159,90</h5>
+                    <a href="#" class="btn btn-primary" id='botao'>Comprar</a>
                 </div>
 
             </div>

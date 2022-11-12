@@ -2,7 +2,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from './components/menu/Menu';
-import TelaInicial from './pages/TelaInicial/TelaInicial.js';
+import TelaInicial from './pages/TelaInicial/TelaInicial.jsx';
 
 
 function App() {
