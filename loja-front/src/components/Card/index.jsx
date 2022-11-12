@@ -4,19 +4,19 @@ import './style.css';
 export default function Card({ nome, img, preco }) {
     return (
         <>
-            <div class="card">
+            <div className="card">
             <img 
-                class="card-img-top" 
+                className="card-img-top" 
                 src={img}
                 alt="tapete"
                 width={100}
                 height={180}
             />
 
-                <div class="card-body">
-                    <p class="card-text">{nome}</p>
-                    <h5 class="card-text-preco">{preco}</h5>
-                    <a href="#" class="btn btn-primary" id='botao'>Comprar</a>
+                <div className="card-body">
+                    <p className="card-text">{nome}</p>
+                    <h5 className="card-text-preco">{preco}</h5>
+                    <a href="#" className="btn btn-primary" id='botao'>Comprar</a>
                 </div>
 
             </div>
