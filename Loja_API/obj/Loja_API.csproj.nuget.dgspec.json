@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jonas\\Documentos\\git\\Loja\\Loja_API\\Loja_API.csproj": {}
+    "C:\\Users\\letic\\OneDrive\\Documentos\\cotuca\\meu repositorio\\TrabalhoFinalWeb\\Loja\\Loja_API\\Loja_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jonas\\Documentos\\git\\Loja\\Loja_API\\Loja_API.csproj": {
+    "C:\\Users\\letic\\OneDrive\\Documentos\\cotuca\\meu repositorio\\TrabalhoFinalWeb\\Loja\\Loja_API\\Loja_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jonas\\Documentos\\git\\Loja\\Loja_API\\Loja_API.csproj",
+        "projectUniqueName": "C:\\Users\\letic\\OneDrive\\Documentos\\cotuca\\meu repositorio\\TrabalhoFinalWeb\\Loja\\Loja_API\\Loja_API.csproj",
         "projectName": "Loja_API",
-        "projectPath": "C:\\Users\\jonas\\Documentos\\git\\Loja\\Loja_API\\Loja_API.csproj",
-        "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jonas\\Documentos\\git\\Loja\\Loja_API\\obj\\",
+        "projectPath": "C:\\Users\\letic\\OneDrive\\Documentos\\cotuca\\meu repositorio\\TrabalhoFinalWeb\\Loja\\Loja_API\\Loja_API.csproj",
+        "packagesPath": "C:\\Users\\letic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\letic\\OneDrive\\Documentos\\cotuca\\meu repositorio\\TrabalhoFinalWeb\\Loja\\Loja_API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jonas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\letic\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-rc.1.22431.12\\RuntimeIdentifierGraph.json"
         }
       }
     }
