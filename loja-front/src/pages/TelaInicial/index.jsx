@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Menu from '../../components/menu/Menu';
+import Menu from '../../components/Menu';
 import tapete from '../../images/Tapetes.png';
-import './TelaInicial.css';
+import './styles.css';
 import Card from '../../components/card/Card';
 
 export default function TelaInicial(){

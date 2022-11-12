@@ -1,19 +1,19 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Menu from './components/menu/Menu';
-import TelaInicial from './pages/TelaInicial/TelaInicial.jsx';
+
+import { BrowserRouter } from 'react-router-dom'
+import Rotas from './Rotas';
 
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <TelaInicial>
-
-      </TelaInicial>
-
-    </div>
+    <BrowserRouter>
+      <div className="App">
+          <Rotas />
+      </div>
+    </BrowserRouter>
   );
 }
 
-export default App;
+
