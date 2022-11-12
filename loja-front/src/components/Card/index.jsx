@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Card.css';
+import './style.css';
 
 export default function Card({ nome, img, preco }) {
     return (

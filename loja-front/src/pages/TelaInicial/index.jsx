@@ -3,8 +3,27 @@ import Menu from '../../components/Menu';
 import tapete from '../../images/Tapetes.png';
 import './styles.css';
 import Card from '../../components/Card';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function TelaInicial(){
+
+  const [produtos, setProdutos] = useState([]);
+  const api = "https://localhost:7065/api/Tapete/GetAll";
+
+  useEffect(() => {
+    axios(api).then((reponse) => {
+      setProdutos(
+        reponse.data.map((produtos) => ({
+          id: produtos.id,
+          nome: produtos.nome,
+          preco: produtos.preco,
+          descricao: produtos.descricao,
+        }))
+      );
+    });
+  }, []);
+
     return(
         <>
           <Menu/>
@@ -12,11 +31,15 @@ export default function TelaInicial(){
             <img src={tapete} alt='logo' width={1348} height={300}/>
           </div>
           <div className='cards'>
-            <Card 
-              nome={"Tapete cinza"}
-              preco={"$120.20"}
-              img={"https://images.tcdn.com.br/img/img_prod/740651/tapete_mianmar_ref_006_azul_2_50x3_00m_5863_1_d82323d168f974a4efecda9fd661ecca.jpg"}
-            />
+          {produtos.map((produto) => (
+          <Card
+            key={produto.id}
+            nome={produto.nome}
+            preco={produto.preco}
+            img={produto.descricao}
+          />
+        ))}
+
           </div>
         </>
     )

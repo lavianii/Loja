@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Menu.css';
-import LogoMenor from '../../images/logomenor.jpg';
+import './style.css';
+import Logo from '../../images/logoP.png';
 
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ export default function Menu() {
         <>
             <div className='imagem'>
                 
-              <img src={LogoMenor} alt='logo' width={340} height={240} />
+              <img src={Logo} alt='logo' width={310} height={210}/>
             
         
                 <nav className="nav" >
@@ -26,6 +26,13 @@ export default function Menu() {
                         to={'/login'}
                         >
                             Login
+                        </Link>
+
+                        <Link 
+                        className='nav-link active'
+                        to={'/inserir'}
+                        >
+                            Inserir
                         </Link>
 
                 </nav>
