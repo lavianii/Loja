@@ -23,7 +23,7 @@ export default function Menu() {
 
                         <Link 
                         className='nav-link active'
-                        to='/login'
+                        to={'/login'}
                         >
                             Login
                         </Link>
