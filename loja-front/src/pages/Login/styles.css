@@ -1,7 +1,50 @@
-.container{
-    border: 1px solid black;
-    margin-top: 50px;
-    height: 300px;
-    width:500px;
-    border-radius: 2%;
+.background{
+    background-image: url(https://tudosobretapetes.com/img/tapete-de-sala-enigma-nasa-00x-90m-sao-carlos-tapetes-sao-carlos.png);
+    width: auto;
+    height: 385px;
+    background-clip: initial;
+    background-size: 50%;
+    padding-top: 50px;
 }
+
+.container-login{
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px #929292;
+    margin-right: 500px;
+    margin-left: 500px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.titulo{
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.input{
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+
+}
+
+.btn{
+    margin-top: 10px;
+    padding-left: 108px;
+    padding-right: 108px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #1c1c1c;
+    border-color: #1c1c1c;
+}
+
+.btn:hover{
+    background-color: #5CE1E6;
+    border-color: #5CE1E6;
+
+}
+
+

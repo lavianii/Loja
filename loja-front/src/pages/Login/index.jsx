@@ -46,10 +46,11 @@ export default function Login() {
     return (
         <>
             <Menu />
-            <div className="container">
-                <form onSubmit={manipularLogin}>
-                    <div className="form-group">
-                        <label>Usuario</label>
+            <div className="background">
+                <div className="container-login">
+                <h5 className='titulo'>Login</h5>
+                <form className='form' onSubmit={manipularLogin}>
+                    <div className="input">
                         <input
                             className="form-control"
                             type="text"
@@ -63,8 +64,7 @@ export default function Login() {
 
                         />
                     </div>
-                    <div className="form-group">
-                        <label>Senha</label>
+                    <div className="input">
                         <input
                             type="password"
                             className="form-control"
@@ -78,12 +78,11 @@ export default function Login() {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-primary btn-lg">LOGAR</button>
+                    <button type="submit" className="btn btn-primary btn-lg">Entrar</button>
                     <h3>{msg}</h3>
                 </form>
-
+                </div>
             </div>
-
         </>
     )
 }

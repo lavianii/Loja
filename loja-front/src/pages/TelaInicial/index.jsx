@@ -35,7 +35,7 @@ export default function TelaInicial(){
           <Card
             key={produto.id}
             nome={produto.nome}
-            preco={produto.preco}
+            preco={"$"+produto.preco}
             img={produto.descricao}
           />
         ))}

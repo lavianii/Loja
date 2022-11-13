@@ -9,7 +9,7 @@ export default function Menu() {
         <>
             <div className='imagem'>
                 
-              <img src={Logo} alt='logo' width={310} height={210}/>
+              <img src={Logo} alt='logo' width={310} height={210} className="img"/>
             
         
                 <nav className="nav" >

@@ -1,20 +1,58 @@
 .fundo{
     background-image: url(https://tudosobretapetes.com/img/tapete-de-sala-enigma-nasa-00x-90m-sao-carlos-tapetes-sao-carlos.png);
     width: auto;
-    height: 370px;
+    height: 385px;
     background-clip: initial;
     background-size: 50%;
-    padding-top: 100px;
-  
-    align-items: center;
-   
+    padding-top: 90px;
+    text-align: center;
 }
-
 .container-form{
     background-color: #D9D9D9;
-    padding-bottom: 200px;
-    margin-left: 150px;
-    margin-right: 150px;
+    padding-bottom: 60px;
+    margin-left: 200px;
+    margin-right: 200px;
     border-radius: 10px;
     box-shadow: 5px 10px 10px #929292;
+    
 }
+.titulo{
+    padding-top: 30px;
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.inputs-container{
+   display: inline-flex;
+
+}
+#form-input{
+  margin-left: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+}
+#btn-salvar{
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    background-color: #5CE1E6;
+    border-color: #5CE1E6;
+}
+#btn-cancelar{
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #FF1616;
+    border-color: #FF1616;
+}
+#btn-cancelar:hover{
+    background-color: #bc2121;
+    border-color: #bc2121;
+}
+#btn-salvar:hover{
+    background-color: #4dc5c9;
+    border-color: #4dc5c9;
+}
+
