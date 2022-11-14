@@ -1,8 +1,5 @@
 import axios from "axios";
-const API_URL = "https://localhost:7065/api/";
-// Cadastro Aluno: role professor
-// Cadastro Curso: role professor
-// Carômetro: todos
+const API_URL = "https://localhost:7065/api/Home";
 
 const user = JSON.parse(localStorage.getItem('user'));
 const getPublico = () => {
@@ -10,7 +7,7 @@ const getPublico = () => {
 };
 
 const getAutenticado = async () => {
-    return await axios.get(API_URL + "funcionario", {
+    return await axios.get(API_URL + "autenticado", {
         headers: {
             Authorization:
                 'Bearer ' + user.token

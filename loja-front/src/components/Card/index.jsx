@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
+import { Link } from 'react-router-dom';
+
 export default function Card({ nome, img, preco }) {
     return (
         <>
@@ -16,7 +18,7 @@ export default function Card({ nome, img, preco }) {
                 <div className="card-body">
                     <p className="card-text">{nome}</p>
                     <h5 className="card-text-preco">{preco}</h5>
-                    <a href="#" className="btn btn-primary" id='botao'>Comprar</a>
+                    <Link to='/' className="btn btn-primary" id='botao'>Comprar</Link>
                 </div>
 
             </div>

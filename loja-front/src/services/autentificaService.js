@@ -24,7 +24,7 @@ const logout = () => {
     localStorage.removeItem("user");
 }
 
-const getCurrentUser = () => {
+const getUsuarioAtual = () => {
     //obtem as informacoes do localStorage
     return JSON.parse(localStorage.getItem("user"));
 }
@@ -32,7 +32,7 @@ const getCurrentUser = () => {
 const AuthService = {
     login,
     logout,
-    getCurrentUser
+    getUsuarioAtual
 }
 
 

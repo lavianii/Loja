@@ -1,8 +1,9 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from '../../components/Menu';
-import './style.css';
+import './styles.css';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
@@ -11,8 +12,11 @@ export default function Inserir(){
     const [inputNome, setInputNome] = useState("");
     const [inputPreco, setInputPreco] = useState(""); 
     const [inputImagem, setInputImagem] = useState("");
-    const api = "https://localhost:7065/api/tapete/post"
-    
+    const api = "https://localhost:7065/api/tapete/post";
+
+    const urlAutoriza = "https://localhost:7065/api/Home/gerente";
+    const user = JSON.parse(localStorage.getItem("user"));
+    const navigate = useNavigate();
 
     function limpaInput() {
         setInputNome("");
@@ -30,6 +34,18 @@ export default function Inserir(){
         )
       }
 
+      axios(urlAutoriza, {
+       headers: {
+        Authorization:
+            'Bearer ' + user.token
+       }
+      }).then(res => {
+        console.log("res: " + JSON.stringify(res.data.token))
+      }).catch(error =>{
+       
+        navigate('/autoriza');
+      });
+       
     return(
         <>
         <Menu/>

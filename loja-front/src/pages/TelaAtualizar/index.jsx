@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from '../../components/Menu';
-import './style.css';
+import './styles.css';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -14,7 +14,10 @@ export default function Atualizar(){
     const [produtoSelecionado, setProdutoSelecionado] = useState("");
 
     const apiGet = "https://localhost:7065/api/Tapete/GetAll";
-    const apiUpdate = "https://localhost:7065/api/Tapete/put";
+    const apiUpdate = "https://localhost:7065/api/Tapete/put";    
+    const urlAutoriza = "https://localhost:7065/api/Home/funcionario";
+
+    const user = JSON.parse(localStorage.getItem("user"));
 
     useEffect(() => {
         axios(apiGet).then((reponse) => {
@@ -48,6 +51,14 @@ export default function Atualizar(){
     function cancelar(){
         setTableVisility(false)
     }
+
+    axios(urlAutoriza, {
+        headers: {
+         Authorization:
+             'Bearer ' + user.token
+        }
+       });
+ 
 
     return(
         <>
