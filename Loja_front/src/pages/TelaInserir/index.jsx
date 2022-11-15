@@ -39,10 +39,7 @@ export default function Inserir(){
         Authorization:
             'Bearer ' + user.token
        }
-      }).then(res => {
-        console.log("res: " + JSON.stringify(res.data.token))
       }).catch(error =>{
-       
         navigate('/autoriza');
       });
        
