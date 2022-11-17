@@ -76,7 +76,7 @@ export default function Login() {
                         </div>
 
                         <button type="submit" className="btn btn-primary btn-lg">Entrar</button>
-                        <h3>{msg}</h3>
+                        <p className='erro'>{msg}</p>
                     </form>
                 </div>
             </div>
