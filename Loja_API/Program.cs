@@ -24,8 +24,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Add services to the container.
-
 // Adding Authentication
 builder.Services.AddAuthentication(options =>
 {
