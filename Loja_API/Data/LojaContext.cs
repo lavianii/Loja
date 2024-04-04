@@ -1,5 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using Loja_API.models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Loja_API.Data
 {
@@ -9,7 +9,7 @@ namespace Loja_API.Data
 
         public LojaContext(IConfiguration configuration)
         {
-          Configuration = configuration;
+            Configuration = configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -17,9 +17,9 @@ namespace Loja_API.Data
             // connect to sql server with connection string from app settings
             options.UseSqlServer(Configuration.GetConnectionString("StringConexaoSQLServer"));
         }
+
         public DbSet<Funcionario>? Funcionario { get; set; }
         public DbSet<Usuario>? Usuario { get; set; }
-        public DbSet<Tapete>? Tapete {get;set;}
-
+        public DbSet<Tapete>? Tapete { get; set; }
     }
 }

@@ -26,34 +26,34 @@ namespace Loja_API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public  ActionResult<dynamic> Login(Usuario usuario)
+        public ActionResult<dynamic> Login(Usuario usuario)
         {
-           if(_context is not null && _context.Usuario is not null)
-           {
+            if (_context is not null && _context.Usuario is not null)
+            {
 
-           var user = _context.Usuario.Where(u => u.username == usuario.username
-           && u.senha == usuario.senha).FirstOrDefault(); 
-           if(user == null)
-                return Unauthorized("Usuário ou senha inválidos");
-           var authClaims = new List<Claim> {
+                var user = _context.Usuario.Where(u => u.username == usuario.username
+                && u.senha == usuario.senha).FirstOrDefault();
+                if (user == null)
+                    return Unauthorized("Usuário ou senha inválidos");
+                var authClaims = new List<Claim> {
                 new Claim(ClaimTypes.Name, user.username),
                 new Claim(ClaimTypes.Role, user.role),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
-            var token = GetToken(authClaims);
-            user.senha = "";
-
-
-            return Ok(new {
-                token = new JwtSecurityTokenHandler().WriteToken(token),
-                user = user
-            });
-           } 
-           else
-           {
-            return "Null";
-           }
+                var token = GetToken(authClaims);
+                user.senha = "";
+                
+                return Ok(new
+                {
+                    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    user
+                });
+            }
+            else
+            {
+                return "Null";
+            }
         }
 
         [HttpGet]
@@ -67,40 +67,40 @@ namespace Loja_API.Controllers
 
         public string Authenticated()
         {
-            if(User is not null && User.Identity is not null)
+            if (User is not null && User.Identity is not null)
             {
                 return String.Format("Autenticado - {0}", User.Identity.Name);
             }
-            
+
             return "Null";
         }
-        
+
         [HttpGet]
         [Route("funcionario")]
         [Authorize(Roles = "funcionario,gerente")]
         public string Funcionario()
         {
-            if(User is not null && User.Identity is not null)
+            if (User is not null && User.Identity is not null)
             {
                 return String.Format("Funcionario - {0}", User.Identity.Name);
             }
-            
+
             return "Null";
         }
 
         [HttpGet]
         [Route("gerente")]
         [Authorize(Roles = "gerente")]
-        public string Gerente() 
+        public string Gerente()
         {
-            if(User is not null && User.Identity is not null)
+            if (User is not null && User.Identity is not null)
             {
                 return String.Format("Gerente - {0}", User.Identity.Name);
             }
-            
+
             return "Null";
         }
-        
+
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
             var authSigningKey = new
@@ -112,7 +112,7 @@ namespace Loja_API.Controllers
             issuer: _configuration["JWT:ValidIssuer"],
             audience: _configuration["JWT:ValidAudience"],
             claims: authClaims,
-            signingCredentials: new 
+            signingCredentials: new
         SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
 
             );

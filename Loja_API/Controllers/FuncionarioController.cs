@@ -8,7 +8,7 @@ namespace Loja_API.Controllers
     [ApiController]
     public class FuncionarioController : ControllerBase
     {
-        private LojaContext _context;
+        private readonly LojaContext _context;
 
         public FuncionarioController(LojaContext context)
         {
@@ -65,8 +65,8 @@ namespace Loja_API.Controllers
             }
             else
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError,
-
+                return this.StatusCode(
+                    StatusCodes.Status500InternalServerError,
                 "Falha no acesso ao banco de dados.");
 
             }
@@ -88,7 +88,6 @@ namespace Loja_API.Controllers
                     return this.StatusCode(StatusCodes.Status500InternalServerError,
 
                     "Falha no acesso ao banco de dados.");
-
                 }
             }
             else
@@ -104,7 +103,8 @@ namespace Loja_API.Controllers
         {
             try
             {
-                if (_context is not null && _context.Funcionario is not null){
+                if (_context is not null && _context.Funcionario is not null)
+                {
                     var funcionario = await _context.Funcionario.FindAsync(FuncionarioId);
                     if (funcionario == null)
                     {
@@ -112,14 +112,14 @@ namespace Loja_API.Controllers
                     }
                     _context.Remove(funcionario);
                     await _context.SaveChangesAsync();
-                    
+
                     return NoContent();
                 }
                 else
                 {
                     return NotFound();
                 }
-               
+
             }
             catch
             {
@@ -136,17 +136,17 @@ namespace Loja_API.Controllers
                 if (_context is not null && _context.Funcionario is not null)
                 {
                     var result = await _context.Funcionario.FindAsync(FuncionarioId);
-                if (result is not null)
-                {
-
-                    if (FuncionarioId != result.id)
+                    if (result is not null)
                     {
-                        return BadRequest();
-                    }
 
-                    result.cargo = alteraDados.cargo;
-                    await _context.SaveChangesAsync();
-                }
+                        if (FuncionarioId != result.id)
+                        {
+                            return BadRequest();
+                        }
+
+                        result.cargo = alteraDados.cargo;
+                        await _context.SaveChangesAsync();
+                    }
 
                     return Created($"/api/funcionario/{alteraDados.cargo}", alteraDados);
                 }
@@ -154,7 +154,7 @@ namespace Loja_API.Controllers
                 {
                     return BadRequest();
                 }
-                
+
             }
             catch
             {
