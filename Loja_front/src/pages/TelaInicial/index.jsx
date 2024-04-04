@@ -6,7 +6,7 @@ import Card from '../../components/Card';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function TelaInicial(){
+export default function TelaInicial() {
 
   const [produtos, setProdutos] = useState([]);
   const api = "https://localhost:7065/api/Tapete/GetAll";
@@ -24,23 +24,23 @@ export default function TelaInicial(){
     });
   }, []);
 
-    return(
-        <>
-          <Menu/>
-          <div className='imagem'>
-            <img src={tapete} alt='logo' width={1905} height={350}/>
-          </div>
-          <div className='cards'>
-          {produtos.map((produto) => (
+  return (
+    <>
+      <Menu />
+      <div className='imagem'>
+        <img src={tapete} alt='logo' width={1905} height={350} />
+      </div>
+      <div className='cards'>
+        {produtos.map((produto) => (
           <Card
             key={produto.id}
             nome={produto.nome}
-            preco={"$"+produto.preco}
+            preco={"$" + produto.preco}
             img={produto.descricao}
           />
         ))}
 
-          </div>
-        </>
-    )
+      </div>
+    </>
+  )
 }

@@ -11,7 +11,7 @@ export default function Logout() {
       autentificaService.logout();
       navigate('/login');
       window.location.reload();
-    },500);
+    }, 500);
   }, []);
 
   return (

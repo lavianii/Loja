@@ -9,25 +9,25 @@ import autentificaService from './services/autentificaService';
 import Autorizacao from "./pages/Autorizacao";
 import Logout from "./pages/Logout";
 
-export default function Rotas(){
+export default function Rotas() {
 
-    const [usuarioAtual,setUsuarioAtual ] = useState(undefined);
+    const [usuarioAtual, setUsuarioAtual] = useState(undefined);
 
-    useEffect(() =>{
+    useEffect(() => {
         const user = autentificaService.getUsuarioAtual();
 
-        if(user){
+        if (user) {
             setUsuarioAtual(user);
         }
-    },[]);
+    }, []);
 
 
-    return(
+    return (
         <Routes>
             <Route exact path="/" element={<TelaInicial />} />
 
-            <Route path="/login" element={<Login />}/>
-            
+            <Route path="/login" element={<Login />} />
+
             <Route path='/logout' element={<Logout />} />
 
             <Route path='/autoriza' element={<Autorizacao />} />
@@ -35,18 +35,18 @@ export default function Rotas(){
             <Route path="*" to='/' />
 
             {usuarioAtual ? (
-                <Route exact path="/inserir" element={<Inserir />}/>
+                <Route exact path="/inserir" element={<Inserir />} />
 
             ) : (
-                <Route exact path="/inserir" element={<Autorizacao />}/>
+                <Route exact path="/inserir" element={<Autorizacao />} />
             )}
-            
+
             {usuarioAtual ? (
-                <Route exact path="/atualizar" element={<Atualizar />}/>
+                <Route exact path="/atualizar" element={<Atualizar />} />
             ) : (
-                <Route exact path="/atualizar" element={<Autorizacao />}/>
+                <Route exact path="/atualizar" element={<Autorizacao />} />
             )}
-            
+
         </Routes>
     )
 }

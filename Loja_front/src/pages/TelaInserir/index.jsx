@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
-export default function Inserir(){
+export default function Inserir() {
 
     const [inputNome, setInputNome] = useState("");
-    const [inputPreco, setInputPreco] = useState(""); 
+    const [inputPreco, setInputPreco] = useState("");
     const [inputImagem, setInputImagem] = useState("");
     const api = "https://localhost:7065/api/tapete/post";
 
@@ -32,65 +32,65 @@ export default function Inserir(){
         }).then(
             alert("Produto incluido com sucesso!!")
         )
-      }
+    }
 
-      axios(urlAutoriza, {
-       headers: {
-        Authorization:
-            'Bearer ' + user.token
-       }
-      }).catch(error =>{
+    axios(urlAutoriza, {
+        headers: {
+            Authorization:
+                'Bearer ' + user.token
+        }
+    }).catch(error => {
         navigate('/autoriza');
-      });
-       
-    return(
+    });
+
+    return (
         <>
-        <Menu/>
+            <Menu />
             <div className='fundo'>
                 <div className='container-form'>
                     <h5 className='titulo'>Novo Produto</h5>
-                        <form className='form'>
-                            <div className='inputs-container' >
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="form-input" 
-                                    placeholder="Nome do Produto"
-                                    value={inputNome}
-                                    onChange={(event) => {setInputNome(event.target.value)}}
-                                />
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="form-input" 
-                                    placeholder="Preco do Produto"
-                                    value={inputPreco}
-                                    onChange={(event) => {setInputPreco(event.target.value)}}
-                                />
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="form-input" 
-                                    placeholder="Link Imagem"
-                                    value={inputImagem}
-                                    onChange={(event) => {setInputImagem(event.target.value)}}
-                                />
-                                <button 
-                                    type="submit" 
-                                    className="btn btn-primary" 
-                                    id='btn-salvar'
-                                    onClick={()=> {createProduto()}}>
-                                    Salvar
-                                </button>
-                                <button 
-                                    type="submit" 
-                                    className="btn btn-primary" 
-                                    id='btn-cancelar'
-                                    onClick={()=> {limpaInput()}}>
-                                    Cancelar
-                                </button>
-                            </div>
-                        </form>
+                    <form className='form'>
+                        <div className='inputs-container' >
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="form-input"
+                                placeholder="Nome do Produto"
+                                value={inputNome}
+                                onChange={(event) => { setInputNome(event.target.value) }}
+                            />
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="form-input"
+                                placeholder="Preco do Produto"
+                                value={inputPreco}
+                                onChange={(event) => { setInputPreco(event.target.value) }}
+                            />
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="form-input"
+                                placeholder="Link Imagem"
+                                value={inputImagem}
+                                onChange={(event) => { setInputImagem(event.target.value) }}
+                            />
+                            <button
+                                type="submit"
+                                className="btn btn-primary"
+                                id='btn-salvar'
+                                onClick={() => { createProduto() }}>
+                                Salvar
+                            </button>
+                            <button
+                                type="submit"
+                                className="btn btn-primary"
+                                id='btn-cancelar'
+                                onClick={() => { limpaInput() }}>
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </>

@@ -23,22 +23,22 @@ export default function Login() {
             setMsg("Usuario ou senha invalido");
         } else {
             autentificaService.login(usuario, senha)
-            .then(
-                () => {
-                    console.log("localStorage" + localStorage.getItem("user"));
-                    navigate("/")
-                    window.location.reload();
-                },
-                (error) => {
-                    const resMessage =
-                        (error.res &&
-                            error.res.data &&
-                            error.res.data.msg) ||
-                        error.message ||
-                        error.toString();
-                    setMsg(resMessage);
-                }
-            );
+                .then(
+                    () => {
+                        console.log("localStorage" + localStorage.getItem("user"));
+                        navigate("/")
+                        window.location.reload();
+                    },
+                    (error) => {
+                        const resMessage =
+                            (error.res &&
+                                error.res.data &&
+                                error.res.data.msg) ||
+                            error.message ||
+                            error.toString();
+                        setMsg(resMessage);
+                    }
+                );
 
         }
 

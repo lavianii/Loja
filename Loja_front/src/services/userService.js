@@ -2,11 +2,11 @@ import axios from "axios";
 const API_URL = "https://localhost:7065/api/Home";
 
 const user = JSON.parse(localStorage.getItem('user'));
-const getPublico = () => {
+const useGetPublico = () => {
     return axios.get(API_URL + "anonimo");
 };
 
-const getAutenticado = async () => {
+async function useGetAutenticado() {
     return await axios.get(API_URL + "autenticado", {
         headers: {
             Authorization:
@@ -15,7 +15,7 @@ const getAutenticado = async () => {
     });
 };
 const UserService = {
-    getPublico,
-    getAutenticado
+    useGetPublico,
+    useGetAutenticado
 };
 export default UserService;

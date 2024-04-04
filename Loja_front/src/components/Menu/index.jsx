@@ -8,57 +8,57 @@ import { useState, useEffect } from 'react';
 
 export default function Menu() {
 
-    const [usuarioAtual,setUsuarioAtual ] = useState(undefined);
+    const [usuarioAtual, setUsuarioAtual] = useState(undefined);
 
-    useEffect(() =>{
+    useEffect(() => {
         const user = autentificaService.getUsuarioAtual();
 
-        if(user){
+        if (user) {
             setUsuarioAtual(user);
         }
-    },[]);
+    }, []);
 
 
     return (
         <>
             <div className='imagem'>
-              <img src={Logo} alt='logo' width={310} height={210} className="img"/>
+                <img src={Logo} alt='logo' width={310} height={210} className="img" />
                 <nav className="nav" >
-                        <Link
+                    <Link
                         className='nav-link'
                         to={'/'}
-                        >
-                            Home
-                        </Link>
-                        {usuarioAtual ? (
-                            <Link 
+                    >
+                        Home
+                    </Link>
+                    {usuarioAtual ? (
+                        <Link
                             className='nav-link'
                             to={'/logout'}
-                            >
-                                Logout
-                            </Link>
-                        ) : (
-                            <Link 
+                        >
+                            Logout
+                        </Link>
+                    ) : (
+                        <Link
                             className='nav-link active'
                             to={'/login'}
-                            >
-                                Login
-                            </Link>
-                        )}
-                        <Link 
+                        >
+                            Login
+                        </Link>
+                    )}
+                    <Link
                         className='nav-link active'
                         to={'/inserir'}
-                        >
-                            Inserir
-                        </Link>
-                        <Link 
+                    >
+                        Inserir
+                    </Link>
+                    <Link
                         className='nav-link active'
                         to={'/atualizar'}
-                        >
-                            Atualizar
-                        </Link>
+                    >
+                        Atualizar
+                    </Link>
                 </nav>
-           </div>      
+            </div>
         </>
     );
 }

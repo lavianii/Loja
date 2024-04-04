@@ -7,13 +7,13 @@ export default function Card({ nome, img, preco }) {
     return (
         <>
             <div className="card">
-            <img 
-                className="card-img-top" 
-                src={img}
-                alt="tapete"
-                width={100}
-                height={180}
-            />
+                <img
+                    className="card-img-top"
+                    src={img}
+                    alt="tapete"
+                    width={100}
+                    height={180}
+                />
 
                 <div className="card-body">
                     <p className="card-text">{nome}</p>
