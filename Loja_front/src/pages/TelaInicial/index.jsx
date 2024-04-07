@@ -27,8 +27,8 @@ export default function TelaInicial() {
   return (
     <>
       <Menu />
-      <div className='imagem'>
-        <img src={tapete} alt='logo' width={1905} height={350} />
+      <div>
+        <img src={tapete} alt='logo' className='imagem-2'/>
       </div>
       <div className='cards'>
         {produtos.map((produto) => (

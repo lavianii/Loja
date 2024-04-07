@@ -53,7 +53,7 @@ export default function Login() {
                     <form className='form' onSubmit={manipularLogin}>
                         <div className="input">
                             <input
-                                className="form-control"
+                                className="form-control form-control-lg"
                                 type="text"
                                 value={usuario}
                                 placeholder="Usuario"
@@ -66,7 +66,7 @@ export default function Login() {
                         <div className="input">
                             <input
                                 type="password"
-                                className="form-control"
+                                className="form-control form-control-lg"
                                 placeholder="Senha"
                                 value={senha}
                                 onChange={({ target }) => {
